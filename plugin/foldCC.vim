@@ -14,12 +14,12 @@ function! FoldCCtext()
   if line_width >77
     let line_width =77
   endif
-  let alignment = line_width - 15 - 4 + regardMultibyte
-    "15はprintf()で消費する分、4はfolddasesを使うための余白
+  let alignment = line_width - 15 + regardMultibyte
+    "15はprintf()で消費する分
     "issue:regardMultibyteで足される分が多い （61桁をオーバーして切り詰められてる場合
   "}}}alignment
 
-  return printf('%-'.alignment.'.'.alignment.'s   [%4d  Lv%-2d]%s', line,v:foldend-v:foldstart+1,v:foldlevel,v:folddashes)
+  return printf('%-'.alignment.'.'.alignment.'s   [%4d  Lv%-2d]', line,v:foldend-v:foldstart+1,v:foldlevel)
 endfunction
 "}}}
 
