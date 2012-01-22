@@ -57,8 +57,7 @@ function! FoldCCnavi() " {{{
         return join(parentList, ' > ')
         " }}}
     endif
-endfunction
-" }}}
+endfunction " }}}
 
 function! s:rm_CmtAndFmr(lnum) " {{{
     let line = getline(a:lnum)
@@ -70,13 +69,11 @@ function! s:rm_CmtAndFmr(lnum) " {{{
     let foldmarkers = split(&foldmarker, ',')
 
     return substitute(line, '\V\%(' . comment[0] . '\)\?\s\*' . foldmarkers[0] . '\%(\d\+\)\?\s\*\%(' . comment_end . '\)\?', '', '')
-endfunction
-" }}}
+endfunction " }}}
 
 function! s:surgery_line(lnum) " {{{
     let line = substitute(s:rm_CmtAndFmr(a:lnum), '\V\s', '', 'g')
     let regardMultibyte = len(line) - strdisplaywidth(line)
     let alignment = 60 + regardMultibyte
     return line[:alignment]
-endfunction
-" }}}
+endfunction " }}}
