@@ -23,7 +23,6 @@ function! FoldCCtext()
 endfunction
 "}}}
 
-
 function! FoldCCnavi() "{{{
 if foldlevel('.')
   let save_csr=winsaveview()
@@ -77,5 +76,3 @@ function! s:surgery_line(lnum)"{{{
   let alignment = 60 + regardMultibyte
   return line[:alignment]
 endfunction"}}}
-
-
